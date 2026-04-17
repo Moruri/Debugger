@@ -1,9 +1,3 @@
-"""Parse runtime_log_<run_label>.jsonl files written by sink SQs.
-
-One JSON object per pipeline completion. We read the fields that any
-debugger feature is likely to need and expose them as a typed record.
-"""
-
 from __future__ import annotations
 
 import json
@@ -37,7 +31,7 @@ def read_runtime_log(path: Path) -> list[EndToEndRecord]:
             run_label=e.get("run_label", ""),
             latency_ms=float(e["latency_ms"]),
             predicted_ms=(float(e["predicted_ms"])
-                          if "predicted_ms" in e else None),
+                            if "predicted_ms" in e else None),
         ))
     return out
 

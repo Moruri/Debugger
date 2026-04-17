@@ -1,8 +1,3 @@
-"""`python -m ttpython_debugger <subcommand> ...`.
-
-Each feature owns one subcommand. Today only `deadlines` is wired in;
-placeholders below show where future features will slot in.
-"""
 
 from __future__ import annotations
 
@@ -20,11 +15,9 @@ def main(argv: list[str] | None = None) -> int:
     )
     subs = ap.add_subparsers(dest="command", required=True)
 
-    # Implemented.
+
     deadlines_cmd.register(subs)
 
-    # Placeholders so `--help` advertises the full debugger surface.
-    # Each prints a "not implemented yet" message when invoked.
     for name, blurb in [
         ("adaptation",     "Explain why the runtime remapped an SQ."),
         ("rootcause",      "Explain why a timing violation happened."),
@@ -42,7 +35,7 @@ def main(argv: list[str] | None = None) -> int:
 def _not_implemented(name: str):
     def run(_args) -> int:
         print(f"`{name}` is planned but not implemented yet. "
-              f"See ROADMAP.md.", file=sys.stderr)
+                f"See ROADMAP.md.", file=sys.stderr)
         return 2
     return run
 

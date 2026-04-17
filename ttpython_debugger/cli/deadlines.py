@@ -1,5 +1,3 @@
-"""`deadlines` subcommand: report deadline violations from a cluster run."""
-
 from __future__ import annotations
 
 import argparse
@@ -19,11 +17,11 @@ def register(subs: argparse._SubParsersAction) -> None:
         help="Report deadline violations from a real cluster run.",
     )
     p.add_argument("--spec", required=True, type=Path,
-                   help="YAML file declaring the deadlines for this workload")
+                    help="YAML file declaring the deadlines for this workload")
     p.add_argument("--runtime-log", type=Path, default=None,
-                   help="runtime_log_*.jsonl from sink SQs (end-to-end)")
+                    help="runtime_log_*.jsonl from sink SQs (end-to-end)")
     p.add_argument("--sq-timing", type=Path, default=None,
-                   help="sq_timing_*.jsonl from Engine.py instrumentation")
+                    help="sq_timing_*.jsonl from Engine.py instrumentation")
     p.set_defaults(func=_run)
 
 

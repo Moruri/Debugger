@@ -1,23 +1,10 @@
-# Deadlines for the eval_etl workload (RIoTBench ETL pipeline).
-#
-# Every value below is a CONTRACT the programmer wrote in TTPython source
-# via PreemptiveFinishByOtherwise(..., ExecTimeDeadline=N) or as the
-# overall pipeline budget. The `deadlines` subcommand compares real
-# measurements against these numbers; it does not invent them.
-#
-# Replace the illustrative numbers here with the actual deadlines from
-# evals/workloads/eval_etl.py before running on the cluster.
-
 workload: eval_etl
 
-# End-to-end pipeline budget, checked against runtime_log_*.jsonl.
 end_to_end_deadline_ms: 100.0
 
-# Per-SQ budgets, checked against sq_timing_*.jsonl. Only SQs you
-# actually wrapped in PreemptiveFinishByOtherwise belong here.
 per_sq_deadlines:
-  senml_parse:    1.00
-  bloom_filter:   0.50
-  range_filter:   0.50
-  interpolation:  2.00
-  mqtt_publish:   5.00
+  senml_parse: 1.00
+  bloom_filter: 0.50
+  range_filter: 0.50
+  interpolation: 2.00
+  mqtt_publish: 5.00

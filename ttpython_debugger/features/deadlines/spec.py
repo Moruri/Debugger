@@ -1,11 +1,3 @@
-"""Load the programmer-declared deadlines for a workload from YAML.
-
-Deadlines are a contract, not a measurement. They are what the source
-code declared via PreemptiveFinishByOtherwise(..., ExecTimeDeadline=N)
-or as the overall pipeline budget. This module does NOT try to infer
-them from runtime data.
-"""
-
 from __future__ import annotations
 
 from dataclasses import dataclass

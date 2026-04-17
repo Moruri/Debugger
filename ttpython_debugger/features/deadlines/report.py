@@ -16,8 +16,8 @@ from .spec import Deadlines
 
 
 def end_to_end_summary(records: Sequence[EndToEndRecord],
-                       deadlines: Deadlines,
-                       violations: Sequence[Violation]) -> str:
+                        deadlines: Deadlines,
+                        violations: Sequence[Violation]) -> str:
     if deadlines.end_to_end_ms is None:
         return "No end-to-end deadline declared.\n"
     if not records:
@@ -39,8 +39,8 @@ def end_to_end_summary(records: Sequence[EndToEndRecord],
 
 
 def per_sq_summary(records: Sequence[SqRecord],
-                   deadlines: Deadlines,
-                   violations: Sequence[Violation]) -> str:
+                    deadlines: Deadlines,
+                    violations: Sequence[Violation]) -> str:
     if not deadlines.per_sq_ms:
         return "No per-SQ deadlines declared.\n"
 
